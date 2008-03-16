@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-def index(request):
+def index_list(request):
     """
     This will eventually become the index page.  For now, however, it will
     be used as a testbed for the template design.
@@ -12,23 +12,30 @@ def index(request):
         context_instance=RequestContext(request)
     )
 
-def popular(request):
+def popular_list(request):
     context = {}
     return render_to_response('djangoapps/popular_list.html', 
         context, 
         context_instance=RequestContext(request)
     )
 
-def hot(request):
+def hot_list(request):
     context = {}
     return render_to_response('djangoapps/hot_list.html', 
         context, 
         context_instance=RequestContext(request)
     )
 
-def new(request):
+def new_list(request):
     context = {}
     return render_to_response('djangoapps/new_list.html', 
+        context, 
+        context_instance=RequestContext(request)
+    )
+
+def hotclub(request):
+    context = {}
+    return render_to_response('djangoapps/hotclub.html', 
         context, 
         context_instance=RequestContext(request)
     )
