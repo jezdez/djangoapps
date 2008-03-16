@@ -32,6 +32,23 @@ def popular_list(request, num=10):
     )
 
 def hot_list(request, num=10):
+    '''
+    Lists the hottest apps.  *Hottness* is based on the rate at which it is 
+    recieving up votes. it is calculated by weighting the votes assymptotically
+    by time. 
+    for example:
+        obj A recieved 200 votes today, 100 votes this week(not including 
+        today) and 3 votes this month(not including this week) and 0 other
+        votes.
+        obj A hottness rating = 200*10 + 100*5 + 3*1 = 2503
+        obj A total votes = 200 + 100 + 3 = 303
+
+        obj B recieved 9 votes today, 300 votes this week(not including today)
+        and 600 votes this month(not including this week) and 0 other votes.
+        obj B hottness rating = 9*10 + 300*5 = 600*1 = 2190
+        obj B total votes = 9 + 300 + 600 = 909
+    '''
+
     context = {}
     return render_to_response('djangoapps/hot_list.html', 
         context, 
