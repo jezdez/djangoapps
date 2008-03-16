@@ -5,7 +5,7 @@ from models import DjangoApp
 
 def index(request, num=10):
     context = {
-        'app_list': Vote.objects.get_top(num),
+#        'app_list': Vote.objects.get_top(num),
     }
     return render_to_response('djangoapps/index.html', 
         context, 

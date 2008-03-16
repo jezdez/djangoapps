@@ -9,5 +9,5 @@ urlpatterns = patterns('',
     url(r'^hotclub/$', views.hotclub, name="da_hotclub"),
     url(r'^detail/(?P<slug>[a-zA-Z0-9_-]+)/$', views.detail, name="da_detail"),
     url(r'^submit/$', views.submit, name="da_submit"),
-    url(r'^/$', views.index, name="da_index"),
+    url(r'^$', views.index, name="da_index"),
 )
