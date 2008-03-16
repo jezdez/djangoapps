@@ -11,3 +11,38 @@ def index(request):
         context, 
         context_instance=RequestContext(request)
     )
+
+def popular(request):
+    context = {}
+    return render_to_response('djangoapps/popular_list.html', 
+        context, 
+        context_instance=RequestContext(request)
+    )
+
+def hot(request):
+    context = {}
+    return render_to_response('djangoapps/hot_list.html', 
+        context, 
+        context_instance=RequestContext(request)
+    )
+
+def new(request):
+    context = {}
+    return render_to_response('djangoapps/new_list.html', 
+        context, 
+        context_instance=RequestContext(request)
+    )
+
+def detail(request, slug):
+    context = {}
+    return render_to_response('djangoapps/app_detail.html', 
+        context, 
+        context_instance=RequestContext(request)
+    )
+
+def submit(request):
+    context = {}
+    return render_to_response('djangoapps/submit_app.html', 
+        context, 
+        context_instance=RequestContext(request)
+    )
