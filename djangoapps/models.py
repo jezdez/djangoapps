@@ -12,6 +12,7 @@ class DjangoApp(models.Model):
     license = models.CharField(max_length=128, blank=True, verbose_name=_("License"))
     date_added = models.DateTimeField(default=datetime.datetime.now, verbose_name=_("Date Added"))
     is_public = models.BooleanField(default=True, verbose_name=_("Is Public"))
+    is_hotclub = models.BooleanField(default=False, verbose_name=_("Is a Hotclub Application"))
     
     def save(self):
         if not self.slug:
