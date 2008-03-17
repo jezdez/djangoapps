@@ -89,6 +89,15 @@ body {
 	float:right;
 	padding-top:6px;
 	padding-right:5px;
+	
+}
+
+#content a.rating img {
+	padding-top:6px;
+	height:16px;
+	width:15px;
+	float:right;
+	padding-right:5px;
 }
 
 #content a.top1 {
