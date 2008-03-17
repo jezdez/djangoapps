@@ -40,20 +40,20 @@ class Command(NoArgsCommand):
             print "Updating: %r (%s)" % (name, version)
 
             # Load app or create if not existing
-            try:
-                app = DjangoApp.objects.get(name=name)
-            except DjangoApp.DoesNotExist:
-                app = DjangoApp(name=name)
-                print "Created app %r" % name
+            # try:
+            #     app = DjangoApp.objects.get(name=name)
+            # except DjangoApp.DoesNotExist:
+            #     app = DjangoApp(name=name)
+            #     print "Created app %r" % name
 
-            print info
+            print info.keys()
 
             # TODO
             # Fill app with data from PyPI
             # the model fields should have the same variable name 
-            for data in settings.PYPI_METADATA:
+            for data in PYPI_METADATA:
                 value = info.get(data, '')
                 if value is None or value.strip().lower() == "unknown":
                     value = ""
-                setattr(app, data, value.strip())
-            app.save()
+                #setattr(app, data, value.strip())
+            #app.save()
