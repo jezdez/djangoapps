@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+	<title></title>
+	<link rel="stylesheet" href="{{MEDIA_URL}}css/master.css" type="text/css" media="screen" title="Master Stylesheet" charset="utf-8">
+</head>
+<body>
+<div id="container">
+	<div id="content">
+		{% block content %}
+			The nicest content you can find 'round.
+		{% endblock %}
+		
+	</div>
+	<div id="menu">
+		<div id="colcontainer">
+			<img src="{{MEDIA_URL}}images/logo.jpg">
+			<div id="centercol">
+				<h5>The place to find the latest django apps</h5>
+				<form><p><input type="text" name="search" size="24">
+						 <input type="submit" name="submit" value="Search"></p>
+				</form>
+			</div>
+			<div id="col1">{% block leftcol %} {% include 'djangoapps/menu1.html' %} {% endblock %}</div>
+			<div id="col2">{% block rightcol %} {% endblock %}</div>
+		</div>
+			<img src="{{MEDIA_URL}}images/content_top.jpg">
+		</div>
+	</div>
+	</body>
+	</html>
