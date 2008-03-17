@@ -4,6 +4,13 @@ from django.core.management.base import NoArgsCommand
 
 PYPI_URL = "http://cheeseshop.python.org/pypi"
 PYPI_KEYWORD = "django"
+PYPI_METADATA = (
+    "name",
+    "description",
+    "long_description",
+    "homepage",
+    "license",
+)
 
 from djangoapps.models import DjangoApp
 
@@ -38,6 +45,8 @@ class Command(NoArgsCommand):
             except DjangoApp.DoesNotExist:
                 app = DjangoApp(name=name)
                 print "Created app %r" % name
+
+            print info
 
             # TODO
             # Fill app with data from PyPI
