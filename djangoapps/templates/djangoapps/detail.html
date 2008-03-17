@@ -1,0 +1,12 @@
+{% block content %}
+		<h1>{{app.name}}</h1>
+		{% if app.is_hotclub %}
+			<img src="{{MEDIA_URL}}images/hotclub.png" />
+		{% endif %}
+		<div id="description">{{app.longdescription}}</div>
+		<div id="license">{{app.license}}</div>
+		<div id="date_added">{{app.date_added|timesince}}</div>
+		<div id="version">{{app.version}}</div>
+		<div id="voting"><form><input type="submit" name="recommend" value="{{app.id}}" id="recommend"></form></div>
+		<div id="homepage"><a href="{{app.homepage}}" /></div>
+{% endblock %}
