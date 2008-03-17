@@ -32,12 +32,57 @@ body {
 #content a.rating {
 	display:block;
 	width:100%;
-	height:26px;
+	height:31px;
 	background-color:#f1d8a5;
+	float:left;
 }
 
-#content a.top {
-	
+#content a.rating span.hotness {
+	display:block;
+	width:25px;
+	height:31px;
+	float:left;
+	text-indent:-10000px;
+}
+
+#content a.top1 {
+	background-color:#f1be53;
+}
+
+#content a.top2 {
+	background-color:#f1c76e
+}
+
+#content a.top3 {
+	background-color:#f1d089;
+}
+
+#content a span.ranking {
+	float:right;
+}
+
+#content a.hot100 span.hotness {
+	background-image:url(/site_media/images/fire100.png);
+}
+
+#content a.hot80 span.hotness {
+	background-image:url(/site_media/images/fire80.png);	
+}
+
+#content a.hot60 span.hotness {
+	background-image:url(/site_media/images/fire60.png);	
+}
+
+#content a.hot40 > span.hotness {
+	background-image:url(/site_media/images/fire40.png);	
+}
+
+#content a.hot20 > span.hotness {
+	background-image:url(/site_media/images/fire20.png);	
+}
+
+#content a.hot0 > span.hotness {
+	background-image:url(/site_media/images/fire0.png);
 }
 
 #menu {
