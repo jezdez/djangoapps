@@ -20,62 +20,56 @@
 	<div id="content">
 		<p><span class="logoblack">django</span><span class="logoorange">apps*</span> is a resource for users of the webframework django and was created to encourage users to use and create reuseable applications. additionally this site will provide you techniques in creating reusable apps.</p>
 		<h1>Popular Apps</h1>
-		
-		<a href="#" class="rating hot100 top1">
+		{% for app,num_votes in app_list %}
+		<a href="#" class="rating hot100 {% cycle "top1" "top2" "top3" "" "" "" "" "" "" ""%}">
 		<span class="hotness">100% hot</span>
-		<span class="title">django-tagging</span>
-		<span class="voting">30 <img src="{{MEDIA_URL}}images/voteup.png"></span></a>
-		<div class="subheading"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p></div>
-		
-		<a href="#" class="rating hot40 top2"><span class="hotness">40% hot</span>
-		<span class="title">django-registration</span>
-		<span class="voting">10 <img src="{{MEDIA_URL}}images/voteup.png"></span></a>
-		<div class="subheading"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p></div>
-		
-		<a href="#" class="rating hot60 top3"><span class="hotness">60% hot</span>
-		<span class="title">django-something</span>
-		<span class="voting">101 <img src="{{MEDIA_URL}}images/voteup.png"></span></a>
-		<div class="subheading"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p></div>
+		<span class="title">{{ app.name }}</span>
+		<span class="voting">{{ num_votes }} <img src="{{MEDIA_URL}}images/voteup.png"></span></a>
+		<div class="subheading"><p>{{ app.description }}</p></div>
+		{% endfor %}
 
-		<h1>Other Great News</h1>
-		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>	
 	</div>
 
 	<div id="menu">
-		<img src="{{MEDIA_URL}}images/logo.jpg">
+	
+		<div id="colcontainer">
+			<img src="{{MEDIA_URL}}images/logo.jpg">
+			<div id="centercol">
+				<h5>The place to find the latest django apps</h5>
+				<form><p><input type="text" name="username" size="24">
+						 <input type="submit" name="mysubmit" value="Search"></p>
+				</form>
+			</div>
+			<div id="col1">
+				<ul>
+					<li style="list-style: none">
+						<h1>Order apps</h1>
+					</li>
 
-		<div id="centercol">
-			<h5>The place to find the latest django apps</h5>
-		</div>
+					<li><a href="#">by rating</a></li>
 
-		<div id="col1">
-			<ul>
-				<li style="list-style: none">
-					<h1>Order apps</h1>
-				</li>
+					<li><a href="#">by hotness</a></li>
 
-				<li><a href="#">by rating</a></li>
+					<li><a href="#">by author</a></li>
 
-				<li><a href="#">by hotness</a></li>
+					<li><a href="#">by tag</a></li>
 
-				<li><a href="#">by author</a></li>
+					<li><a href="#">by date added</a></li>
 
-				<li><a href="#">by tag</a></li>
-
-				<li><a href="#">by date added</a></li>
-
-				<li><a href="#">by name</a></li>
-			</ul>
-		</div>
-
-		<div id="col2">
-			<h1>Login</h1>
+					<li><a href="#">by name</a></li>
+				</ul>
+			</div>
+			<div id="col2">
+				<h1>Login</h1>
 			
-			<form>
-				<p>username:</p> <input type="text" name="username" size="17"> <p>password:</p> <input type="text" name="username" size="17">
-				 <p><input type="submit" name="mysubmit" value="Login"></p>
-			</form>
-		</div><img src="{{MEDIA_URL}}images/content_top.jpg">
+				<form>
+					<p>username:</p> <input type="text" name="username" size="17"> <p>password:</p> <input type="text" name="username" size="17">
+					 <p><input type="submit" name="mysubmit" value="Login"></p>
+				</form>
+			</div>
+			
+		</div>
+		<img src="{{MEDIA_URL}}images/content_top.jpg">
 	</div>
 </div>
 </body>

@@ -8,6 +8,8 @@ class Author(models.Model):
     name = models.CharField(max_length=128, unique=True, verbose_name=_("Name"))
     slug = models.SlugField(max_length=128, unique=True, verbose_name=_("Slug"))
     email = models.EmailField(blank=True)
+    class Admin:
+        pass
 
 class DjangoApp(models.Model):
     PYPI, GOOGLE, SOURCEFORGE = 1, 2, 3

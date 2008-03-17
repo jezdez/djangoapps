@@ -136,10 +136,9 @@ body {
 
 #menu {
 	width:322px;
-	background:#092e20;
 	float:left;
 	color:white;
-	font-size:15	px;
+	font-size:15px;
 }
 
 #menu a {
@@ -160,6 +159,14 @@ body {
 	text-align:center;
 	padding-bottom:15px;
 }
+#centercol p {
+	padding-top:12px;
+	padding-bottom:2px;
+}
+#colcontainer {
+	background:#092e20;
+	min-height:320px;
+}
 
 #col1 {
 	float:left;
@@ -169,11 +176,16 @@ body {
 
 #col2 {
 	float:left;
-	width:161px;
+	width:151px;
+	text-align:right;
+	padding-right:10px;
 }
 
 #col2 p {
 	padding-top:5px;
-	padding-top:3px;
+	padding-bottom:3px;
 	text-align:right;
+}
+#col2 h1 {
+	text-align:left;
 }
