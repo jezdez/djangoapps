@@ -1,4 +1,4 @@
 from django import newforms as forms
 
-class DjangoAppsForm(forms.Form):
+class DjangoAppForm(forms.Form):
     pass
