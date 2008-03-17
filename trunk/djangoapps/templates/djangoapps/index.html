@@ -1,13 +1,15 @@
 {% extends 'djangoapps/base.html' %}
 
 {% block content %}
-		<p><span class="logoblack">django</span><span class="logoorange">apps*</span> is a resource for users of the webframework django and was created to encourage users to use and create reuseable applications. additionally this site will provide you techniques in creating reusable apps.</p>
+		<p><span class="logoblack">django</span><span class="logoorange">apps*</span> is a resource for users of the webframework <strong>django</strong> and was created to encourage users to use and create reuseable applications. additionally this site will provide you with techniques in creating reusable apps.</p>
 		<h1>Popular Apps</h1>
 		{% for app,num_votes in app_list %}
 		<a href="detail/{{ app.slug }}" class="rating hot100 {% cycle "top1" "top2" "top3" "" "" "" "" "" "" ""%}">
 		<span class="hotness">100% hot</span>
 		<span class="title">{{ app.name }}</span>
-		<span class="voting">{{ num_votes }} <img src="{{MEDIA_URL}}images/voteup.png"></span></a>
+		<img src="{{MEDIA_URL}}images/voteup.png"> 
+		<span class="voting">{{ num_votes }} </span> 
+		</a>
 		<div class="subheading"><p>{{ app.description }}</p></div>
 		{% endfor %}
 {% endblock %}
