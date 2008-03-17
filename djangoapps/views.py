@@ -2,6 +2,10 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from voting.models import Vote
 from models import DjangoApp
+from math import e
+from forms import DjangoAppForm
+from datetime import datetime, timedelta
+from operator import itemgetter
 
 def index(request, num=10):
     context = {
@@ -31,26 +35,25 @@ def popular_list(request, num=10):
         context_instance=RequestContext(request)
     )
 
-def hot_list(request, num=10):
+def hot_list(request, num=10, decay_constant=.05, decay_window = 90):
     '''
     Lists the hottest apps.  *Hottness* is based on the rate at which it is 
-    recieving up votes. it is calculated by weighting the votes assymptotically
-    by time. 
-    for example:
-        obj A recieved 200 votes today, 100 votes this week(not including 
-        today) and 3 votes this month(not including this week) and 0 other
-        votes.
-        obj A hottness rating = 200*10 + 100*5 + 3*2.5 = 2503
-        obj A total votes = 200 + 100 + 3 = 303
-
-        obj B recieved 9 votes today, 300 votes this week(not including today)
-        and 600 votes this month(not including this week) and 0 other votes.
-        obj B hottness rating = 9*10 + 300*5 = 600*2.5 + 0* = 2190
-        obj B total votes = 9 + 300 + 600 = 909
+    recieving votes. The votes will be decayed based on the 
+    ``decay_costant`` (c) and the Euler's number (e) and the time from 
+    today (t): e^(-ct).  To save some efficiency only the number of days from
+    today dictated by the ``decay_window`` will be counted in the hottness 
+    score.
     '''
-    
-    context = {}
-    return render_to_response('djangoapps/hot_list.html', 
+    app_scores = {}
+    for instance in DjangoApps.objects.all():
+        votes = Vote.objects.filter(object = instance).filter(date_submitted__gte = datetime.now() - timedelta(days=90))
+        score = 0
+        for vote in votes:
+            score = score + e ** ( ( datetime.now() - vote.date_submitted() ).days * decay_constant )
+        app_scores[instance]=score
+    app_list = [x for (x,y) in sorted(app_scores.item(), key=itemgetter(1), reverse=True)]
+    context = {'app_list':app_list}
+    return render_to_response('djangoapps/hot_list.html',
         context, 
         context_instance=RequestContext(request)
     )
