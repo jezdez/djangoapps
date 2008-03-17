@@ -5,10 +5,17 @@
 		{% if app.is_hotclub %}
 			<img src="{{MEDIA_URL}}images/hotclub.png" />
 		{% endif %}
-		<div id="description">{{app.longdescription}}</div>
+		<h3>Description</h3>
+		<div id="description"><p>{{app.long_description}}</p></div>
+		<h3>License</h3>
 		<div id="license">{{app.license}}</div>
+		<h3>Age</h3>
 		<div id="date_added">{{app.date_added|timesince}}</div>
+		<h3>Version</h3>
 		<div id="version">{{app.version}}</div>
-		<div id="voting"><form><input type="submit" name="recommend" value="{{app.id}}" id="recommend"></form></div>
-		<div id="homepage"><a href="{{app.homepage}}" /></div>
+		<div id="voting"><form><input type="hidden" name="recommend" value="{{app.id}}" id="recommend"></form></div>
+		<h3>Homepage</h3>	
+		<div id="app_homepage"><a href="{{app.homepage}}" />{{app.homepage}}</a></div>
+		<h3>Download</h3>
+		<div id="downloadlink"><a href="{{app.download_url}}">Download Link!</a></div>
 {% endblock %}

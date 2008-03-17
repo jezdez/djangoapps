@@ -37,8 +37,17 @@ body {
 }
 #content h1 {
 	font-size:28px;
-	padding-top:22px;
+	padding-top:5px;
 	padding-bottom:13px;
+	color:#092E20;
+}
+#content h2 {
+	padding-top:10px;
+	padding-bottom:3px;
+}
+#content h3 {
+	padding-top:10px;
+	padding-bottom:3px;
 }
 
 #content a:link,a:visited {
@@ -199,4 +208,12 @@ body {
 }
 #col2 h1 {
 	text-align:left;
+}
+
+#app_homepage a:link,#app_homepage a:visited {
+    color:#E79F0A;
+}
+
+#logo a{
+    border:0px solid #fff;
 }
