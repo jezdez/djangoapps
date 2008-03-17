@@ -144,6 +144,9 @@ body {
 #menu a {
 	color: #f1be53;
 }
+#menu a:hover{
+    color:#FFF;
+}
 
 #menu ul {
 	padding-left:12px;
