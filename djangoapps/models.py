@@ -1,6 +1,7 @@
 from django.db import models
 from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse
 import datetime
 
 class DjangoApp(models.Model):
@@ -13,15 +14,20 @@ class DjangoApp(models.Model):
     date_added = models.DateTimeField(default=datetime.datetime.now, verbose_name=_("Date Added"))
     is_public = models.BooleanField(default=True, verbose_name=_("Is Public"))
     is_hotclub = models.BooleanField(default=False, verbose_name=_("Is a Hotclub Application"))
+    version = models.CharField(max_length=50, blank=True, verbose_name=_("Version"))
+    download_url = models.URLField(verbose_name=_("Download URL"))
     
     def save(self):
         if not self.slug:
             self.slug = defaultfilters.slugify(self.name)
         super(DjangoApp, self).save()
     
+    def get_absolute_url(self):
+        return reverse("da_detail", kwargs={'slug': self.slug})
+    
     def __unicode__(self):
         return self.name
-        
+    
     class Admin:
         list_display = ('name', 'homepage', 'date_added', 'is_public')
         search_fields = ('name', 'description')

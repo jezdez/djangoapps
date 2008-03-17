@@ -2,10 +2,11 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from voting.models import Vote
 from models import DjangoApp
+from forms import DjangoAppForm
 
 def index(request, num=10):
     context = {
-#        'app_list': Vote.objects.get_top(num),
+        'app_list': Vote.objects.get_top(num),
     }
     return render_to_response('djangoapps/index.html', 
         context, 
@@ -94,13 +95,6 @@ def detail(request, slug):
         'app': get_object_or_404(DjangoApp, slug=slug),
     }
     return render_to_response('djangoapps/app_detail.html', 
-        context, 
-        context_instance=RequestContext(request)
-    )
-
-def submit(request):
-    context = {}
-    return render_to_response('djangoapps/submit_app.html', 
         context, 
         context_instance=RequestContext(request)
     )
