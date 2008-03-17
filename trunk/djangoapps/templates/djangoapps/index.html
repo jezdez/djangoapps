@@ -11,19 +11,30 @@
 <body>
 <div id="container">
 
-	<div id="menu">
+	<div id="content">
 		<p>Some Introduction</p>
 		<h1>Other stuff</h1>
-		<a class="100hot">hot django-tagging 5 stars</a>
-		<a class="40hot">notthathot django-registration 2 stars</a>
+		<a class="rating 100hot top">hot django-tagging 5 stars</a>
+		<a class="rating 40hot">notthathot django-registration 2 stars</a>
 		<h1>Other Stuff here, too</h1>
-		<a class="60hot">notsohot django-something 3 stars</a>
+		<a class="rating 60hot">notsohot django-something 3 stars</a>
 	</div>
-	<div id="content">
+	<div id="menu">
 		<img src="{{MEDIA_URL}}images/logo.jpg">
-		<div id="column"></div>
-		<div id="col1"></div>
-		<div id="col2"></div>
+		<div id="centercol">I wanna ROCK!</div>
+		<div id="col1">
+			Show apps ordered
+			<a href="#">by rating</a>
+			<a href="#">by hotness</a>
+			<a href="#">by author</a>
+			<a href="#">by tag</a>
+			<a href="#">by date added</a>
+			<a href="#">by name</a>
+		</div>
+		<div id="col2">
+			Login stuff
+		</div>
+		<img src="{{MEDIA_URL}}images/content_top.jpg" />
 	</div>
 
 </div>
