@@ -3,7 +3,6 @@ from django.template import RequestContext
 from voting.models import Vote
 from models import DjangoApp
 from math import e
-from forms import DjangoAppForm
 from datetime import datetime, timedelta
 from operator import itemgetter
 
