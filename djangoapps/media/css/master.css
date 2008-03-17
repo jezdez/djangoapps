@@ -8,6 +8,7 @@
 body {
 	background:#316241;
 }
+
 #container {
 	width:890px;
 	position: absolute;
@@ -17,15 +18,22 @@ body {
 }
 
 #content {
-	width:540px;
-	margin-right:8px;
-	background-color:#f1eadb;
 	float:left;
-	background-image:url(/site_media/images/menu_bottom.jpg);
-	background-repeat:repeat-x;
-	min-height: 500px;
-	padding:10px;
+	width:560px;
+	margin-right:8px;
+}
+
+#content img {
+	float:left;
+}
+
+#contentcontainer {
+	width:540px;
+	background-color:#f1eadb;
+    padding:10px;
 	font-size:14px;
+	margin:0;
+	float:left;
 }
 #content h1 {
 	font-size:28px;
