@@ -5,6 +5,9 @@ from models import DjangoApp
 from math import e
 from datetime import datetime, timedelta
 from operator import itemgetter
+from django.contrib.auth import logout
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 def index(request, num=10):
     context = {
@@ -99,3 +102,7 @@ def detail(request, slug):
         context, 
         context_instance=RequestContext(request)
     )
+    
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse("da_index"))
