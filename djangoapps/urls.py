@@ -4,6 +4,7 @@ from models import DjangoApp
 from djangoapps import views
 from copy import deepcopy
 
+
 create_dict = {
     'model': DjangoApp,
     'login_required': True,
@@ -22,6 +23,10 @@ urlpatterns = patterns('',
     url(r'^create/$', create_object, create_dict, name="da_create"),
     url(r'^update/(?P<slug>[a-zA-Z0-9_-]+)/$', update_object, update_dict, name="da_update"),
     url(r'^delete/(?P<slug>[a-zA-Z0-9_-]+)/$', delete_object, delete_dict, name="da_delete"),
+    
+    url(r'^logout/$', views.logout_view, name="logout"),
+    
+    
 
     url(r'^$', views.index, name="da_index"),
 )

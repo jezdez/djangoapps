@@ -27,7 +27,7 @@
 				</form>
 			</div>
 			<div id="col1">{% block leftcol %} {% include 'djangoapps/menu1.html' %} {% endblock %}</div>
-			<div id="col2">{% block rightcol %} {% endblock %}</div>
+			<div id="col2">{% block rightcol %} {% include 'djangoapps/menu2.html' %}{% endblock %}</div>
 		</div>
 			<img src="{{MEDIA_URL}}images/content_top.jpg">
 		</div>

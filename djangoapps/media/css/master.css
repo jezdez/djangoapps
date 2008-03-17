@@ -194,7 +194,7 @@ body {
 }
 #colcontainer {
 	background:#092e20;
-	min-height:320px;
+	min-height:360px;
 }
 
 #col1 {
@@ -216,7 +216,7 @@ body {
 	text-align:right;
 }
 #col2 h1 {
-	text-align:left;
+	text-align:right;
 }
 
 #app_homepage a:link,#app_homepage a:visited {
