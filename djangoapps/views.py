@@ -9,7 +9,7 @@ from operator import itemgetter
 
 def index(request, num=10):
     context = {
-        'app_list': Vote.objects.get_top(num),
+        'app_list': Vote.objects.get_top(DjangoApp, limit=num),
     }
     return render_to_response('djangoapps/index.html', 
         context, 
@@ -28,7 +28,7 @@ def popular_list(request, num=10):
         The number of results to return.  Defaults to 10.
     """
     context = {
-        'app_list' : Vote.objects.get_top(num),
+        'app_list' : Vote.objects.get_top(DjangoApp, limit=num),
     }
     return render_to_response('djangoapps/popular_list.html', 
         context, 
