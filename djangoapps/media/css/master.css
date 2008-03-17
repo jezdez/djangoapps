@@ -8,12 +8,12 @@
 body {
 	background:#316241;
 }
-
 #container {
 	width:890px;
 	position: absolute;
 	left:50%;
 	margin-left:-445px;
+	padding-top:25px;
 }
 
 #content {
@@ -25,9 +25,15 @@ body {
 	background-repeat:repeat-x;
 	min-height: 500px;
 	padding:10px;
+	font-size:14px;
+}
+#content h1 {
+	font-size:28px;
+	padding-top:22px;
+	padding-bottom:13px;
 }
 
-#content a:link {
+#content a:link,a:visited {
 	text-decoration:none;
 	color:#000;
 }
@@ -106,14 +112,53 @@ body {
 	background-image:url(/site_media/images/fire0.png);
 }
 
+.logoblack {
+	color:black;
+	font-weight:bold;
+}
+.logoorange {
+	color:#f1be53;
+	font-weight:bold;
+}
+
+
+.subheading p{
+	background-color:white;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+	margin-bottom:10px;
+	float:left;
+	width:530px;
+	border-bottom:1px solid #f1be53;
+	font-size:13px;
+}
+
 #menu {
 	width:322px;
 	background:#092e20;
 	float:left;
+	color:white;
+	font-size:15	px;
+}
+
+#menu a {
+	color: #f1be53;
+}
+
+#menu ul {
+	padding-left:12px;
+	list-style-type:none;
+}
+
+#menu h1{
+	font-size:18px;
+	padding-bottom:8px;
 }
 
 #centercol {
-	
+	text-align:center;
+	padding-bottom:15px;
 }
 
 #col1 {
@@ -121,7 +166,14 @@ body {
 	width:161px;
 }
 
+
 #col2 {
 	float:left;
 	width:161px;
+}
+
+#col2 p {
+	padding-top:5px;
+	padding-top:3px;
+	text-align:right;
 }
