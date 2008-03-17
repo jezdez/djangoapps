@@ -27,7 +27,18 @@ body {
 	padding:10px;
 }
 
+#content a:link {
+	text-decoration:none;
+	color:#000;
+}
 
+#content a:hover {
+	color:#FFF;
+}
+
+#content a img {
+	border:none;
+}
 
 #content a.rating {
 	display:block;
@@ -37,12 +48,24 @@ body {
 	float:left;
 }
 
+#content a.rating span.title {
+	float:left;
+	padding-top:6px;
+}
+
 #content a.rating span.hotness {
-	display:block;
+	display: inline;
 	width:25px;
 	height:31px;
 	float:left;
 	text-indent:-10000px;
+}
+
+#content a.rating span.voting {
+	display:inline;
+	float:right;
+	padding-top:6px;
+	padding-right:5px;
 }
 
 #content a.top1 {
@@ -57,9 +80,7 @@ body {
 	background-color:#f1d089;
 }
 
-#content a span.ranking {
-	float:right;
-}
+
 
 #content a.hot100 span.hotness {
 	background-image:url(/site_media/images/fire100.png);
