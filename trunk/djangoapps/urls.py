@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^hotclub/$', views.hotclub, name="da_hotclub"),
     url(r'^detail/(?P<slug>[a-zA-Z0-9_-]+)/$', views.detail, name="da_detail"),
 
-    url(r'^create/$', djangoapp_create, name="da_create"),
+    #url(r'^create/$', djangoapp_create, name="da_create"),
     url(r'^update/(?P<slug>[a-zA-Z0-9_-]+)/$', update_object, update_dict, name="da_update"),
     url(r'^delete/(?P<slug>[a-zA-Z0-9_-]+)/$', delete_object, delete_dict, name="da_delete"),
     
