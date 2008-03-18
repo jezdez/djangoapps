@@ -18,4 +18,24 @@
 		<div id="app_homepage"><a href="{{app.homepage}}" />{{app.homepage}}</a></div>
 		<h3>Download</h3>
 		<div id="downloadlink"><a href="{{app.download_url}}">Download Link!</a></div>
+		
+		{% load threadedcommentstags %}
+	    <h3>Comments on This Post:</h3>
+	    {% get_threaded_comment_tree for app as tree %}
+	    {% for comment in tree %}
+	        <div style="margin-left: {{ comment.depth }}em;" class="comment">
+	            <a href="{{ comment.user.permalink }}">{{ comment.user }}</a> said:<br/>
+	            {% auto_transform_markup comment %}             
+				<a href="" onclick="javascript:answer({{comment.id}})">[reply]</a>
+	        </div>
+	    {% endfor %}
+	    <p>Reply to Original:</p>
+	    <form method="POST" action="{% get_comment_url app %}">
+	        <ul>
+	            {% get_threaded_comment_form as form %}
+	            {{ form.as_ul }}
+	            <li><input type="submit" value="Submit Comment" /></li>
+	        </ul>
+	    </form>
+	
 {% endblock %}
