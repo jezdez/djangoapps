@@ -9,7 +9,7 @@ from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
-get_at_least(app_list, num=10):
+def get_at_least(app_list, num=10):
     len_of_list = len(app_list)
     num_to_add = 0
     if len_of_list < num:
