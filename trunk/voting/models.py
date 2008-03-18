@@ -2,6 +2,7 @@ from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import User
 from django.db import models
+import datetime
 
 from voting.managers import VoteManager
 
@@ -19,7 +20,7 @@ class Vote(models.Model):
     object_id       = models.PositiveIntegerField()
     object          = generic.GenericForeignKey('content_type', 'object_id')
     vote            = models.SmallIntegerField(choices=SCORES)
-    date_submitted  = models.DateTimeField(editable=False, auto_now_add=True)
+    date_submitted  = models.DateTimeField(editable=False, default = datetime.datetime.now)
 
     objects = VoteManager()
 
