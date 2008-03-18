@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from voting.models import Vote
 from models import DjangoApp
-from favorites.models import Favorite
+#from favorites.models import Favorite
 from threadedcomments.models import ThreadedComment
 from django.contrib.models import User
 from math import e
@@ -126,16 +126,16 @@ def logout_view(request):
     
 def user_profile(request, username):
     user = User.objects.all(username = username)
-    favorites = Favorite.objects.filter(user=user)
+#    favorites = Favorite.objects.filter(user=user)
     comments = ThreadedComments.objects.filter(user=user)
     votes = Vote.objects.filter(user=user)
-    return render_to_response("djangoapps/userprofile.html")
+    return render_to_response("djangoapps/userprofile.html", {'favorites':favorites,'comments':comments,'votes':votes})
 
-def djangoapp_create(request):
-    form = DjangoAppForm(request.POST or None)
-    if(form.is_valid()):
-        app = form.save(commit=False)
-        app.user = request.user
-        app.save()
-        return HttpResponseRedirect(reverse('da_detail', kwargs = {'slug':app.slug}))
-    return render_to_response('djangoapps/djangoapp_form')
+#def djangoapp_create(request):
+    #form = DjangoAppForm(request.POST or None)
+    #if(form.is_valid()):
+        #app = form.save(commit=False)
+        #app.user = request.user
+        #app.save()
+        #return HttpResponseRedirect(reverse('da_detail', kwargs = {'slug':app.slug}))
+    #return render_to_response('djangoapps/djangoapp_form', {'form':form}, )
