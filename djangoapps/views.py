@@ -138,6 +138,6 @@ def djangoapp_create(request):
         #app.user = request.user
         #app.save()
         #return HttpResponseRedirect(reverse('da_detail', kwargs = {'slug':app.slug}))
-    return render_to_response('djangoapps/djangoapp_form.html'
+    return render_to_response('djangoapps/djangoapp_form.html',
         context, 
         context_instance=RequestContext(request))#, {'form':form}, )
