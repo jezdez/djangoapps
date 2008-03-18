@@ -125,10 +125,11 @@ def user_profile(request, username):
 #    favorites = Favorite.objects.filter(user=user)
     comments = ThreadedComment.objects.filter(user=user)
     votes = Vote.objects.filter(user=user)
-    context = {'''favorites':favorites,''''comments':comments,'votes':votes}
+    context = {'comments':comments,'votes':votes}
     return render_to_response("djangoapps/userprofile.html",
         context, 
         context_instance=RequestContext(request)
+    )
 
 def djangoapp_create(request):
     context = {}
