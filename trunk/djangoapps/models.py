@@ -17,7 +17,6 @@ class DjangoApp(models.Model):
     description = models.TextField(verbose_name=_("Description"))
     long_description = models.TextField(blank=True, verbose_name=_("Long Description"))
     homepage = models.URLField(verify_exists=True, verbose_name=_("Home Page"))
-    code_store = models.CharField(max_length=128, choices=CODE_STORE_CHOICES)
     license = models.CharField(max_length=128, blank=True, verbose_name=_("License"))
     date_added = models.DateTimeField(default=datetime.datetime.now, verbose_name=_("Date Added"))
     is_public = models.BooleanField(default=True, verbose_name=_("Is Public"))
@@ -37,6 +36,13 @@ class DjangoApp(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def hottness(self):
+        votes = Vote.objects.filter(object = instance).filter(date_submitted__gte = datetime.now() - timedelta(days=90))
+        score = 0
+        for vote in votes:
+            score = score + e ** ( ( datetime.now() - vote.date_submitted() ).days * .05 )
+        return score
 
     class Admin:
         list_display = ('name', 'homepage', 'date_added', 'is_public')
