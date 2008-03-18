@@ -3,7 +3,7 @@ from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-import datetime
+from datetime import datetime, timedelta
 
 class DjangoApp(models.Model):
     PYPI, GOOGLE, SOURCEFORGE = 1, 2, 3
