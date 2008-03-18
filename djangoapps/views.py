@@ -128,7 +128,7 @@ def user_profile(request, username):
     context = {'''favorites':favorites,''''comments':comments,'votes':votes}
     return render_to_response("djangoapps/userprofile.html",
         context, 
-        context_instance=RequestContext(request))
+        context_instance=RequestContext(request)
 
 def djangoapp_create(request):
     context = {}
