@@ -55,7 +55,7 @@ def popular_list(request, num=10):
 
 def hot_list(request, num=10, decay_constant=.05, decay_window = 90):
     '''
-    Lists the hottest apps.  *Hottness* is based on the rate at which it is 
+    Lists the hottest apps.  *Hotness* is based on the rate at which it is 
     recieving votes. The votes will be decayed based on the 
     ``decay_costant`` (c) and the Euler's number (e) and the time from 
     today (t): e^(-ct).  To save some efficiency only the number of days from
@@ -64,11 +64,7 @@ def hot_list(request, num=10, decay_constant=.05, decay_window = 90):
     '''
     app_scores = {}
     for instance in DjangoApps.objects.all():
-        votes = Vote.objects.filter(object = instance).filter(date_submitted__gte = datetime.now() - timedelta(days=90))
-        score = 0
-        for vote in votes:
-            score = score + e ** ( ( datetime.now() - vote.date_submitted() ).days * decay_constant )
-        app_scores[instance]=score
+        app_scores[instance]=instance.get_hotness()
     app_list = [x for (x,y) in sorted(app_scores.item(), key=itemgetter(1), reverse=True)]
     context = {'app_list':app_list}
     return render_to_response('djangoapps/hot_list.html',
@@ -129,13 +125,19 @@ def user_profile(request, username):
 #    favorites = Favorite.objects.filter(user=user)
     comments = ThreadedComment.objects.filter(user=user)
     votes = Vote.objects.filter(user=user)
-    return render_to_response("djangoapps/userprofile.html", {'''favorites':favorites,''''comments':comments,'votes':votes})
+    context = {'''favorites':favorites,''''comments':comments,'votes':votes}
+    return render_to_response("djangoapps/userprofile.html", ,
+        context, 
+        context_instance=RequestContext(request))
 
 def djangoapp_create(request):
+    context = {}
     #form = DjangoAppForm(request.POST or None)
     #if(form.is_valid()):
         #app = form.save(commit=False)
         #app.user = request.user
         #app.save()
         #return HttpResponseRedirect(reverse('da_detail', kwargs = {'slug':app.slug}))
-    return render_to_response('djangoapps/djangoapp_form.html')#, {'form':form}, )
+    return render_to_response('djangoapps/djangoapp_form.html'
+        context, 
+        context_instance=RequestContext(request))#, {'form':form}, )
