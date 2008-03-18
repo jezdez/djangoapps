@@ -131,11 +131,11 @@ def user_profile(request, username):
     votes = Vote.objects.filter(user=user)
     return render_to_response("djangoapps/userprofile.html", {'favorites':favorites,'comments':comments,'votes':votes})
 
-#def djangoapp_create(request):
+def djangoapp_create(request):
     #form = DjangoAppForm(request.POST or None)
     #if(form.is_valid()):
         #app = form.save(commit=False)
         #app.user = request.user
         #app.save()
         #return HttpResponseRedirect(reverse('da_detail', kwargs = {'slug':app.slug}))
-    #return render_to_response('djangoapps/djangoapp_form', {'form':form}, )
+    return render_to_response('djangoapps/djangoapp_form')#, {'form':form}, )
