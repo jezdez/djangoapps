@@ -27,7 +27,7 @@ urlpatterns = patterns('',
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'djangoapps/login.html'},name="da_login"),
     url(r'^logout/$', views.logout_view, name="da_logout"),
 
-    url(r'^profile/(?P<username>[a-zA-Z0-9_-]+)/$', user_profile, name="da_userprofile"),   
+    #url(r'^profile/(?P<username>[a-zA-Z0-9_-]+)/$', user_profile, name="da_userprofile"),   
 
     url(r'^$', views.index, name="da_index"),
 )
