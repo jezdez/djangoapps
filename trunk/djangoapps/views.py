@@ -2,12 +2,16 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from voting.models import Vote
 from models import DjangoApp
+from favorites.models import Favorite
+from threadedcomments.models import ThreadedComment
+from django.contrib.models import User
 from math import e
 from datetime import datetime, timedelta
 from operator import itemgetter
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from forms import DjangoAppForm\
 
 def get_at_least(app_list_input, num=10):
     app_list = [a for a in app_list_input]
@@ -120,4 +124,18 @@ def logout_view(request):
     request.session.set_test_cookie()
     return HttpResponseRedirect(reverse("da_index"))
     
-    
+def user_profile(request, username):
+    user = User.objects.all(username = username)
+    favorites = Favorite.objects.filter(user=user)
+    comments = ThreadedComments.objects.filter(user=user)
+    votes = Vote.objects.filter(user=user)
+    return render_to_response("djangoapps/userprofile.html")
+
+def djangoapp_create(request):
+    form = DjangoAppForm(request.POST or None)
+    if(form.is_valid()):
+        app = form.save(commit=False)
+        app.user = request.user
+        app.save()
+        return ResponseRedirect(reverse(da_detail, {'slug':app.slug)
+    render_to_response('djangoapps/djangoapp_form')
