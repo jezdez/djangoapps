@@ -123,14 +123,14 @@ def logout_view(request):
     logout(request)
     request.session.set_test_cookie()
     return HttpResponseRedirect(reverse("da_index"))
-    
+  """"  
 def user_profile(request, username):
     user = User.objects.all(username = username)
 #    favorites = Favorite.objects.filter(user=user)
     comments = ThreadedComments.objects.filter(user=user)
     votes = Vote.objects.filter(user=user)
     return render_to_response("djangoapps/userprofile.html", {'favorites':favorites,'comments':comments,'votes':votes})
-
+"""
 def djangoapp_create(request):
     #form = DjangoAppForm(request.POST or None)
     #if(form.is_valid()):
