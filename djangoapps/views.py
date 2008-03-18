@@ -15,7 +15,7 @@ def get_at_least(app_list_input, num=10):
     num_to_add = num - len_of_list
     if num_to_add <= 0:
         return app_list
-    reduced_set = Vote.objects.order_by('?').exclude(id__in=[v[0].id for v in app_list])[:num_to_add]
+    reduced_set = Vote.objects.order_by('?')[:num_to_add]
     for app in reduced_set:
         app_list.append((app, 0))
     return app_list
