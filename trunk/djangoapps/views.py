@@ -126,7 +126,7 @@ def user_profile(request, username):
     comments = ThreadedComment.objects.filter(user=user)
     votes = Vote.objects.filter(user=user)
     context = {'''favorites':favorites,''''comments':comments,'votes':votes}
-    return render_to_response("djangoapps/userprofile.html", ,
+    return render_to_response("djangoapps/userprofile.html",
         context, 
         context_instance=RequestContext(request))
 
