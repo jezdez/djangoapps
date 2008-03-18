@@ -11,7 +11,7 @@ from operator import itemgetter
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from forms import DjangoAppForm
+#from forms import DjangoAppForm
 
 def get_at_least(app_list_input, num=10):
     app_list = [a for a in app_list_input]
