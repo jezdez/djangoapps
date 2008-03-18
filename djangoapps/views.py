@@ -129,7 +129,7 @@ def user_profile(request, username):
 #    favorites = Favorite.objects.filter(user=user)
     comments = ThreadedComment.objects.filter(user=user)
     votes = Vote.objects.filter(user=user)
-    return render_to_response("djangoapps/userprofile.html", {'favorites':favorites,'comments':comments,'votes':votes})
+    return render_to_response("djangoapps/userprofile.html", {'''favorites':favorites,''''comments':comments,'votes':votes})
 
 def djangoapp_create(request):
     #form = DjangoAppForm(request.POST or None)
