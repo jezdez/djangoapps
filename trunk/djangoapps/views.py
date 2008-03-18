@@ -125,7 +125,7 @@ def logout_view(request):
     return HttpResponseRedirect(reverse("da_index"))
 
 def user_profile(request, username):
-    user = User.objects.all(username = username)
+    user = get_object_or_404(User, username=username)
 #    favorites = Favorite.objects.filter(user=user)
     comments = ThreadedComments.objects.filter(user=user)
     votes = Vote.objects.filter(user=user)
@@ -138,4 +138,4 @@ def djangoapp_create(request):
         #app.user = request.user
         #app.save()
         #return HttpResponseRedirect(reverse('da_detail', kwargs = {'slug':app.slug}))
-    return render_to_response('djangoapps/djangoapp_form')#, {'form':form}, )
+    return render_to_response('djangoapps/djangoapp_form.html')#, {'form':form}, )
