@@ -4,7 +4,7 @@ from voting.models import Vote
 from models import DjangoApp
 #from favorites.models import Favorite
 from threadedcomments.models import ThreadedComment
-from django.contrib.models import User
+from django.contrib.auth.models import User
 from math import e
 from datetime import datetime, timedelta
 from operator import itemgetter
