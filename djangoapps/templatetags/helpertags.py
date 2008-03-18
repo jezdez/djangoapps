@@ -4,11 +4,11 @@ register = template.Library()
 
 def below(value, arg):
     "Checks whether value is below args"
-    return value < arg
+    return arg < value
 
 def above(value, arg):
     "Checks whether value is above args"
-    return value > arg
+    return arg > value
     
 register.filter('below', below)
 register.filter('above', above)
