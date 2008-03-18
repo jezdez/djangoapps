@@ -18,7 +18,7 @@ class DjangoApp(models.Model):
     long_description = models.TextField(blank=True, verbose_name=_("Long Description"))
     homepage = models.URLField(verify_exists=True, verbose_name=_("Home Page"))
     license = models.CharField(max_length=128, blank=True, verbose_name=_("License"))
-    date_added = models.DateTimeField(default=datetime.datetime.now, verbose_name=_("Date Added"))
+    date_added = models.DateTimeField(default=datetime.now, verbose_name=_("Date Added"))
     is_public = models.BooleanField(default=True, verbose_name=_("Is Public"))
     is_hotclub = models.BooleanField(default=False, verbose_name=_("Is a Hotclub Application"))
     version = models.CharField(max_length=50, blank=True, verbose_name=_("Version"))
