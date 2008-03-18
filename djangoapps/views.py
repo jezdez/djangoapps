@@ -123,7 +123,7 @@ def logout_view(request):
 def user_profile(request, username):
     user = get_object_or_404(User, username=username)
 #    favorites = Favorite.objects.filter(user=user)
-    comments = ThreadedComment.objects.filter(user=user)
+    comments = ThreadedComment.objects.filter(user=user).orderby('date_submitted')[:10]
     votes = Vote.objects.filter(user=user)
     context = {'comments':comments,'votes':votes}
     return render_to_response("djangoapps/userprofile.html",
