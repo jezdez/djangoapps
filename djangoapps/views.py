@@ -9,9 +9,22 @@ from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
+get_at_least(app_list, num=10):
+    len_of_list = len(app_list)
+    num_to_add = 0
+    if len_of_list < num:
+        num_to_add = num - len_of_list
+    if num_to_add == 0:
+        return app_list
+    reduced_set = Vote.objects.exclude(id__in=[v[0].id for v in app_list])
+    reduced_set = reduced_set.order_by('?')
+    for to_add in xrange(num_to_add):
+        app_list.append((to_add, 0))
+    return app_list
+
 def index(request, num=10):
     context = {
-        'app_list': Vote.objects.get_top(DjangoApp, limit=num),
+        'app_list': get_at_least(Vote.objects.get_top(DjangoApp, limit=num)),
     }
     return render_to_response('djangoapps/index.html', 
         context, 
@@ -30,7 +43,7 @@ def popular_list(request, num=10):
         The number of results to return.  Defaults to 10.
     """
     context = {
-        'app_list' : Vote.objects.get_top(DjangoApp, limit=num),
+        'app_list' : get_at_least(Vote.objects.get_top(DjangoApp, limit=num)),
     }
     return render_to_response('djangoapps/popular_list.html', 
         context, 
