@@ -12,10 +12,8 @@ from django.core.urlresolvers import reverse
 def get_at_least(app_list_input, num=10):
     app_list = [a for a in app_list_input]
     len_of_list = len(app_list)
-    num_to_add = 0
-    if len_of_list < num:
-        num_to_add = num - len_of_list
-    if num_to_add == 0:
+    num_to_add = num - len_of_list
+    if num_to_add <= 0:
         return app_list
     reduced_set = Vote.objects.exclude(id__in=[v[0].id for v in app_list])
     reduced_set = reduced_set.order_by('?')[:num_to_add]
