@@ -24,9 +24,8 @@ urlpatterns = patterns('',
     url(r'^update/(?P<slug>[a-zA-Z0-9_-]+)/$', update_object, update_dict, name="da_update"),
     url(r'^delete/(?P<slug>[a-zA-Z0-9_-]+)/$', delete_object, delete_dict, name="da_delete"),
     
-    url(r'^logout/$', views.logout_view, name="logout"),
-    
-    
+    url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'djangoapps/login.html'},name="da_login"),
+    url(r'^logout/$', views.logout_view, name="da_logout"),
 
     url(r'^$', views.index, name="da_index"),
 )
