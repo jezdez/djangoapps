@@ -1,7 +1,7 @@
 {% extends 'djangoapps/base.html' %}
 
 {% block content %}
-		<p><span class="logoblack">django</span><span class="logoorange">apps*</span> is a resource for users of the webframework <strong>django</strong> and was created to encourage users to use and create reuseable applications. additionally this site will provide you with techniques in creating reusable apps.</p>
+		<p>A resource for users of the webframework <strong>django</strong> and was created to encourage users to use and create reuseable applications. additionally this site will provide you with techniques in creating reusable apps.</p>
 		<h1>Popular Apps</h1>
 		{% for app,num_votes in app_list %}
 		<a href="detail/{{ app.slug }}" class="rating hot100 {% cycle "top1" "top2" "top3" "" "" "" "" "" "" ""%}">

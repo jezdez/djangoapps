@@ -105,4 +105,7 @@ def detail(request, slug):
     
 def logout_view(request):
     logout(request)
+    request.session.set_test_cookie()
     return HttpResponseRedirect(reverse("da_index"))
+    
+    
