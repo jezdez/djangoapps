@@ -123,7 +123,7 @@ def logout_view(request):
     logout(request)
     request.session.set_test_cookie()
     return HttpResponseRedirect(reverse("da_index"))
-  """"  
+""""  
 def user_profile(request, username):
     user = User.objects.all(username = username)
 #    favorites = Favorite.objects.filter(user=user)
