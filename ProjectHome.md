@@ -1,0 +1,1 @@
+The Django application which runs the djangoapps.net which keeps track of the many excellent reusable Django apps around the internet.
